@@ -1,0 +1,126 @@
+﻿@model EasyRent.ViewModels.UserContactUsViewModel
+@{
+    ViewData["Title"] = "ContactUs";
+    Layout = "~/Views/HomeGeneral/Index.cshtml";
+}
+
+
+<!--========================================
+=            Section breadcrumb            =
+=========================================-->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <div class="top">
+                    <h4>Contact Us</h4>
+                </div>
+                <ul class="breadcrumbs">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active">Contact Us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--====  End of Section breadcrumb  ====-->
+
+<div class="container pdt80 pdbt80">
+    <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-7">
+            <div class="contact-us">
+                <h3>
+                    Leave a message
+                </h3>
+                <div class="row">
+                    <form asp-action="ContactUs" method="POST" role="form">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input  asp-for="@Model.ContactUsForm.Name"  class="form-control input-lg" id="" placeholder="Your Name" type="text" />
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input asp-for="@Model.ContactUsForm.Email" class="form-control input-lg" id="" placeholder="Email" type="email" />
+                                
+                            </div>
+                        </div>
+                      
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <textarea asp-for="@Model.ContactUsForm.message" class="form-control" placeholder="Leave your massage Here ..." rows="8">
+	                                </textarea>
+                            </div>
+                            <button class="btn button-theme btn-lg" href="#" type="submit">
+                                Send A Massage
+                                <i class="fa fa-long-arrow-right">
+                                </i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-md-5">
+            <div class="contact-information">
+                <h3>
+                    Contact Information
+                </h3>
+              
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="info-location">
+                    <span>
+                        <i class="fa fa-map-marker">
+                        </i>
+                        @Model.ContactInformation.Location
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="info-location">
+                    <i class="fa fa-envelope-square">
+                    </i>
+                    <span>
+                       @Model.ContactInformation.Email
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="info-location">
+                    <span>
+                        <i class="fa fa-mobile">
+                        </i>
+                       @Model.ContactInformation.PhoneNumber
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="map">
+    @Html.Raw(Model.ContactInformation.GoogleMapPlugin)
+</div>
+<div class="clearfix"></div>
+<div class="bg-theme call-to-actions pdt40 pdbt40">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="text-call-us">
+                    <h3>
+                        Do you want rent or sell your property
+                    </h3>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="call-us text-right">
+                    <h3>
+                        Call Us +55 4XX-678-431
+                    </h3>
+                   
+            </div>
+        </div>
+    </div>
+</div>

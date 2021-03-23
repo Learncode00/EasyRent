@@ -1,0 +1,46 @@
+﻿@model EasyRent.Models.OurService
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminMenu.cshtml";
+}
+
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Add New Service</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IconName" class="control-label"></label>
+                <a href="https://icons.getbootstrap.com/" target="_blank" class="form-control">See Icon List</a>
+                <input asp-for="IconName" class="form-control" />
+                <span asp-validation-for="IconName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <textarea asp-for="Content" id="summernote" rows="10">
+                                    Place <em>some</em> <u>text</u> <strong>here</strong>
+                                  </textarea>
+                <span asp-validation-for=" Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
